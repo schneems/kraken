@@ -1,12 +1,17 @@
 language: ruby
 
 rvm:
-  - 2.4.2
   - ruby-head
 
 script:
-  - bundle exec pronto run -f github_pr github_status -c origin/master
+  - pronto run -f github_status github_pr -c origin/master
   - bundle exec rspec
 
 cache: bundler
 sudo: false
+
+after_success:
+- >
+  [ "${TRAVIS_PULL_REQUEST}" != "false" ] &&
+    PRONTO_PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} \
+      bundle exec pronto run -f github_status github_pr -c origin/master
