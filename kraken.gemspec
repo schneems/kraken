@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'kraken/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'kraken'
+  spec.name          = 'krakenlab'
   spec.version       = Kraken::VERSION
   spec.authors       = ['Marlon Henry Schweigert']
   spec.email         = ['fleyhe0@gmail.com']
