@@ -32,3 +32,6 @@ Metrics/ModuleLength:
 
 Metrics/LineLength:
   Max: 130
+
+Style/FormatStringToken:
+  Enabled: false
