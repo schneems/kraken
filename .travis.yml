@@ -4,14 +4,7 @@ rvm:
   - ruby-head
 
 script:
-  - pronto run -f github_status github_pr -c origin/master
-  - bundle exec rspec
+  - 'export PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} && bundle exec pronto run -f github_pr'
 
 cache: bundler
 sudo: false
-
-after_success:
-- >
-  [ "${TRAVIS_PULL_REQUEST}" != "false" ] &&
-    PRONTO_PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} \
-      bundle exec pronto run -f github_status github_pr -c origin/master
