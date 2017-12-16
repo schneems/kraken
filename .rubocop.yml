@@ -29,3 +29,6 @@ Metrics/MethodLength:
 # Configuration parameters: CountComments.
 Metrics/ModuleLength:
   Max: 106
+
+Metrics/LineLength:
+  Max: 130
