@@ -1,6 +1,7 @@
 require 'redis'
 require 'kraken/version'
+require 'kraken/config'
 
-# In the beginning there was only the void
+# Main module from Kraken Framework
 module Kraken
 end
