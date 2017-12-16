@@ -5,3 +5,4 @@ require 'require_all'
 require 'kraken'
 
 require_all 'config'
+require_all 'app/triggers'
