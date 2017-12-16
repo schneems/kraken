@@ -4,10 +4,25 @@ A easy way to write your MMO distribuited server.
 
 ## Installation
 
+#### Redis
+
+```bash
+  cd /tmp
+  curl -O http://download.redis.io/redis-stable.tar.gz
+  tar xzvf redis-stable.tar.gz
+  cd redis-stable
+  make
+  sudo make install
+
+  sudo service redis start
+```
+
+##### Kraken Framework
+
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'kraken'
+  gem 'kraken'
 ```
 
 And then execute:
@@ -19,6 +34,13 @@ Or install it yourself as:
     $ gem install kraken
 
 ## Usage
+
+Use this template: (kraken-template)[https://github.com/KrakenLab/kraken-template]
+
+Just type in root:
+
+  $ kraken s
+
 
 ## Development
 
