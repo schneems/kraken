@@ -1,5 +1,5 @@
 require 'redis'
-require 'kraken/version'
+require "kraken/version"
 
 # Main module from Kraken Framework
 module Kraken

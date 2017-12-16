@@ -4,6 +4,10 @@ rvm:
   - 2.4.2
   - ruby-head
 
-script: bundle exec rspec
+script:
+  - 'export PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} &&
+    bundle exec pronto run -f github_pr'
+  - bundle exec rspec
 cache: bundler
 sudo: false
+script:
