@@ -6,6 +6,6 @@ describe Kraken::Config do
 
     expect(Kraken::Config.instance.server_name).to eq 'hehe'
     expect(Kraken::Config.instance.server_token).to eq 't1'
-    expect(Kraken::Config.instance.server_version).to eq 'v2'
+    expect(Kraken::Config.instance.server_version).to eq 'v1'
   end
 end
