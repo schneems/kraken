@@ -19,9 +19,7 @@ if ARGV.include? '-d'
   exit
 end
 
-if ARGV.include? '-s'
-  Kraken::Listener.new.join
-end
+Kraken::Listener.new.join if ARGV.include? '-s'
 
 if ARGV.include? '-c'
   Kraken::Listener.new

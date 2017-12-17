@@ -11,8 +11,7 @@ module Kraken
 
     def start
       loop do
-        handler = Kraken::Handler.new @manager.accept
-        Thread.new { handler.start }
+        Kraken::Handler.new @manager.accept
         Kraken::Log.info 'wild socket appeared!'
       end
     end
