@@ -35,9 +35,9 @@ module Kraken
       @@redis.get("#{@path}/#{arg}")
     end
 
-    def []=(arg,value)
+    def []=(arg, value)
       raise 'invalid data' unless valid?
-      @@redis.set("#{@path}/#{arg}",value)
+      @@redis.set("#{@path}/#{arg}", value)
     end
   end
 end
