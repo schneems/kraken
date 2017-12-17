@@ -11,11 +11,32 @@ module Kraken
       @path = path
     end
 
+    def valid?
+      true
+    end
+
+    def async
+      @@redis.pipelined do
+        yield
+      end
+    end
+
+    def atomic
+      @@redis.multi do
+        yield
+      end
+    end
+
+    def del(arg)
+      @@redis.del("#{@path}/#{arg}")
+    end
+
     def [](arg)
       @@redis.get("#{@path}/#{arg}")
     end
 
     def []=(arg,value)
+      raise 'invalid data' unless valid?
       @@redis.set("#{@path}/#{arg}",value)
     end
   end
