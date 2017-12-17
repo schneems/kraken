@@ -37,9 +37,8 @@ module Kraken
     end
 
     def close
-      unless @connection.nil?
-        @connection.delete
-      end
+      @connection.delete unless @connection.nil?
+
       @thread.kill
       @socket.close
     end
