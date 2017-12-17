@@ -1,20 +1,24 @@
 describe Kraken::Model do
   it 'set and get attr' do
-    obj = Kraken::Model.new 'player/itens'
+    attr_key1 = Faker::Coffee.blend_name
+    attr_key2 = Faker::Coffee.blend_name
 
-    obj['hehe'] = 'haha'
-    obj['haha'] = 'hehe'
+    obj = Kraken::Model.new 'coffe/blend_name'
 
-    expect(obj['hehe']).to eq 'haha'
-    expect(obj['haha']).to eq 'hehe'
+    obj['attr_key1'] = attr_key1
+    obj['attr_key2'] = attr_key2
+
+    expect(obj['attr_key1']).to eq attr_key1
+    expect(obj['attr_key2']).to eq attr_key2
   end
 
   it 'can del a attr' do
-    obj = Kraken::Model.new 'player/skills'
+    obj = Kraken::Model.new 'player/map'
 
-    obj['hehe'] = 'haha'
-    obj.del 'hehe'
+    map_name = Faker::ElderScrolls.region
+    obj['name'] = map_name
+    obj.del 'name'
 
-    expect(obj['hehe']).to_not eq 'hehe'
+    expect(obj['name']).to_not eq map_name
   end
 end
