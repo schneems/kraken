@@ -21,5 +21,9 @@ module Kraken
       @thread.kill
       @manager.close
     end
+
+    def join
+      @thread.join
+    end
   end
 end

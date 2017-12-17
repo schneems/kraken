@@ -7,4 +7,4 @@ require 'kraken'
 require_all 'app'
 require_all 'config'
 
-Kraken::Listener.new
+Kraken::Listener.new.join
