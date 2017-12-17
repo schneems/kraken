@@ -5,8 +5,6 @@ module Kraken
   class Model
     attr_reader :path
 
-    @@redis = Redis.new
-
     def initialize(path = '/')
       @@redis ||= Redis.new
       @path = path
