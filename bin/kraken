@@ -2,9 +2,22 @@
 
 require 'bundler/setup'
 require 'require_all'
+
+if ARGV.include? '-v'
+  puts 'KrakenLab'
+  puts "-v #{Kraken::VERSION}"
+  exit
+end
+
 require 'kraken'
 
 require_all 'app'
 require_all 'config'
+
+if ARGV.include? '-d'
+  require 'irb'
+  IRB.start(__FILE__)
+  exit
+end
 
 Kraken::Listener.new.join
