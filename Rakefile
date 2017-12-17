@@ -14,5 +14,5 @@ end
 
 task :dbreset do
   db = Redis.new
-  db.each_key { |key| db.del key }
+  db.keys.each { |key| db.del key }
 end

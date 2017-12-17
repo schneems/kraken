@@ -5,5 +5,11 @@ module Kraken
   class Connection < Model
     attribute :user
     attribute :pass
+
+    index :user
+
+    def single_user?
+      Kraken::Connection.find(user: user).size > 1
+    end
   end
 end

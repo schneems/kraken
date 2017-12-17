@@ -11,8 +11,9 @@ module Kraken
       @thread = Thread.new do
         begin
           start
-        rescue StandardError? => e
+        rescue StandardError => e
           Kraken::Log.error e
+          close
         end
       end
     end
@@ -21,7 +22,8 @@ module Kraken
       user = read
       pass = read
       @connection = Connection.create(user: user, pass: pass)
-      Kraken::Log.info @connection.user
+
+      raise 'only one connection by user' if @connection.single_user?
     end
 
     def read
@@ -32,6 +34,14 @@ module Kraken
 
     def write(txt)
       @socket.puts txt.chomp
+    end
+
+    def close
+      unless @connection.nil?
+        @connection.delete
+      end
+      @thread.kill
+      @socket.close
     end
   end
 end
