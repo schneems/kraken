@@ -8,4 +8,5 @@ end
 require 'kraken/config'
 require 'kraken/listener'
 require 'kraken/log'
+require 'kraken/model'
 require 'kraken/trigger'
