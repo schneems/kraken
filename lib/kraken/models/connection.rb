@@ -9,7 +9,7 @@ module Kraken
     index :user
 
     def single_user?
-      Kraken::Connection.find(user: user).size > 1
+      Kraken::Connection.find(user: user).size <= 1
     end
   end
 end

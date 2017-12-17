@@ -23,7 +23,7 @@ module Kraken
       pass = read
       @connection = Connection.create(user: user, pass: pass)
 
-      raise 'only one connection by user' if @connection.single_user?
+      raise 'only one connection by user' unless @connection.single_user?
     end
 
     def read
