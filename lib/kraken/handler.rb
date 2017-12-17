@@ -12,7 +12,7 @@ module Kraken
       loop do
         # TODO
         sleep 1
-        Kraken::info @socket.gets.chomp
+        Kraken::Log.info @socket.gets.chomp
       end
     end
   end
