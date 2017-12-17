@@ -8,6 +8,7 @@ module Kraken
     @@redis = Redis.new
 
     def initialize(path = '/')
+      @@redis ||= Redis.new
       @path = path
     end
 
