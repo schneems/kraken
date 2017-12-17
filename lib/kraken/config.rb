@@ -30,6 +30,7 @@ module Kraken
 
       @triggers ||= {}
       @triggers[klass.to_s.downcase] = klass
+      Kraken::Log.info "trigger [#{klass.to_s.downcase}] loaded"
     end
   end
 end

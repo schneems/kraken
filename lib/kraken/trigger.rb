@@ -8,9 +8,9 @@ module Kraken
   #     end
   #   end
   class Trigger
-    attr_reader :conn, :params
-    def initialize(conn, params)
-      @conn = conn
+    attr_reader :handler, :params
+    def initialize(handler, params)
+      @handler = handler
       @params = params
     end
 
