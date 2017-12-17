@@ -4,12 +4,9 @@ require 'thread'
 module Kraken
   # This class handle a Socket.
   class Handler
-    def initialize socket
+    def initialize(socket)
       @socket = socket
-      start
     end
-
-    private
 
     def start
       loop do

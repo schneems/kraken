@@ -6,16 +6,20 @@ module Kraken
   class Listener
     def initialize
       @manager = TCPServer.new 3030
-      start
+      @thread = Thread.new { start }
     end
-
-    private
 
     def start
       loop do
-        Kraken::Handler.new @manager.accept
+        handler = Kraken::Handler.new @manager.accept
+        Thread.new { handler.start }
         Kraken::Log.info 'wild socket appeared!'
       end
+    end
+
+    def close
+      @thread.kill
+      @manager.close
     end
   end
 end
