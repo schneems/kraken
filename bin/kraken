@@ -19,4 +19,12 @@ if ARGV.include? '-d'
   exit
 end
 
-Kraken::Listener.new.join
+if ARGV.include? '-s'
+  Kraken::Listener.new.join
+end
+
+if ARGV.include? '-c'
+  Kraken::Listener.new
+  IRB.start(__FILE__)
+  exit
+end
