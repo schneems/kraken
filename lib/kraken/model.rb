@@ -11,12 +11,12 @@ module Kraken
       @path = path
     end
 
-    def get_attr(att='.')
-      @@redis.get "#{@path}/#{att}"
+    def [](arg)
+      @@redis.get("#{@path}/#{arg}")
     end
 
-    def set_attr(att='.', value='0')
-      @@redis.set "#{@path}/#{att}", value
+    def []=(arg,value)
+      @@redis.set("#{@path}/#{arg}",value)
     end
   end
 end
