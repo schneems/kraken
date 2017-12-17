@@ -1,5 +1,8 @@
 language: ruby
 
+services:
+  - redis-server
+
 rvm:
   - ruby-head
 

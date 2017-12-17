@@ -1,4 +1,5 @@
 require 'kraken'
+require 'faker'
 
 RSpec.configure do |config|
   Kraken::Log.close
