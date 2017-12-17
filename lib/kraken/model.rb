@@ -1,4 +1,7 @@
 require 'redis'
+require 'kraken/db'
+
+Kraken::Db.instance.setup
 
 module Kraken
   # Every class that represents data must inherit this object.
@@ -6,7 +9,7 @@ module Kraken
     attr_reader :path
 
     def initialize(path = '/')
-      @@redis ||= Redis.new
+      @redis ||= Kraken::Db.instance.redis
       @path = path
     end
 
@@ -15,28 +18,28 @@ module Kraken
     end
 
     def async
-      @@redis.pipelined do
+      @redis.pipelined do
         yield
       end
     end
 
     def atomic
-      @@redis.multi do
+      @redis.multi do
         yield
       end
     end
 
     def del(arg)
-      @@redis.del("#{@path}/#{arg}")
+      @redis.del("#{@path}/#{arg}")
     end
 
     def [](arg)
-      @@redis.get("#{@path}/#{arg}")
+      @redis.get("#{@path}/#{arg}")
     end
 
     def []=(arg, value)
       raise 'invalid data' unless valid?
-      @@redis.set("#{@path}/#{arg}", value)
+      @redis.set("#{@path}/#{arg}", value)
     end
   end
 end

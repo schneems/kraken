@@ -12,11 +12,14 @@ describe Kraken::Model do
     expect(obj['attr_key2']).to eq attr_key2
   end
 
-  it 'can del a attr' do
+  it 'can set and del a attr' do
     obj = Kraken::Model.new 'player/map'
 
     map_name = Faker::ElderScrolls.region
     obj['name'] = map_name
+
+    expect(obj['name']).to eq map_name
+
     obj.del 'name'
 
     expect(obj['name']).to_not eq map_name
