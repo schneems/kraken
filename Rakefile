@@ -7,7 +7,7 @@ task :console do
   sh './bin/console'
 end
 
-task :test do
+task test: :dbreset do
   sh 'pronto run'
   sh 'bundle exec rspec'
 end
