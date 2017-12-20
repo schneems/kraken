@@ -42,32 +42,11 @@ describe Kraken::Handler do
     expect(@ok).to eq 'ok'
 
     structure = { a: '2', b: '3', c: { a: '5' }, d: ['2',nil], k: nil }
-
+    
     expect do
       @socket.puts 'krakenhandlertest'
-
-      @socket.puts 'h'
-        @socket.puts '5'
-          @socket.puts 'a'
-            @socket.puts 'a'
-              @socket.puts '2'
-          @socket.puts 'b'
-            @socket.puts 'a'
-              @socket.puts '3'
-          @socket.puts 'c'
-            @socket.puts 'h'
-              @socket.puts '1'
-            @socket.puts 'a'
-              @socket.puts 'a'
-                @socket.puts '5'
-          @socket.puts 'd'
-            @socket.puts 'v'
-              @socket.puts '2'
-                @socket.puts 'a'
-                  @socket.puts '2'
-                @socket.puts 'n'
-          @socket.puts 'k'
-            @socket.puts 'n'
+      str = "h\n5\na\na\n2\nb\na\n3\nc\nh\n1\na\na\n5\nd\nv\n2\na\n2\nn\nk\nn"
+      @socket.puts str
     end.to_not raise_error
 
     sleep 1
