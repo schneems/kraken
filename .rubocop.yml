@@ -35,3 +35,12 @@ Metrics/LineLength:
 
 Style/FormatStringToken:
   Enabled: false
+
+Metrics/BlockLength:
+  Max: 50
+
+Style/ClassVars:
+  Enabled: false
+
+Performance/HashEachMethods:
+  Enabled: false
