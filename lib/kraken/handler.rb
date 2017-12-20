@@ -52,10 +52,11 @@ module Kraken
       loop do
         trigger, args = read_trigger
 
-        Kraken::Log.info trigger
-        Kraken::Log.info args
+        shot = trigger.new(self, args)
+        shot.run
+        callback = shot.callback
 
-        trigger.new(self, args).run
+        write to_args(callback)
       end
     end
 
@@ -95,6 +96,34 @@ module Kraken
 
     def write(txt)
       @socket.puts txt.chomp
+    end
+
+    def to_args(obj)
+      case obj
+      when Hash
+        return "h\n#{obj.size}\n#{hash_protocol obj}"
+      when Array
+        return "v\n#{obj.size}\n#{vector_protocol obj}"
+      when NilClass
+        return 'n'
+      end
+      absolute_value(obj)
+    end
+
+    def hash_protocol(obj)
+      ret = ''
+      obj.each_pair { |key, value| ret += "#{key}\n#{to_args value}\n" }
+      ret.chomp
+    end
+
+    def vector_protocol(obj)
+      ret = ''
+      obj.each { |value| ret += "#{to_args value}\n" }
+      ret.chomp
+    end
+
+    def absolute_value(obj)
+      "a\n#{obj}"
     end
   end
 end

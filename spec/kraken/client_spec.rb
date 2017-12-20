@@ -2,6 +2,7 @@ describe Kraken::Client do
   class KrakenClientTest < Kraken::Trigger
     def run
       @@params = params
+      @callback = params
     end
 
     def self.resp
@@ -35,12 +36,13 @@ describe Kraken::Client do
     @structure = { a: '2', b: '3', c: { a: '5' }, d: ['2', nil], k: nil }
 
     expect do
-      @client.call 'KrakenClientTest', @structure
+      @r = @client.call 'KrakenClientTest', @structure
     end.to_not raise_error
 
     sleep 1
 
     expect(@structure).to eq KrakenClientTest.resp
+    expect(@structure).to eq @r
   end
 
   it 'raise if can not connect' do
