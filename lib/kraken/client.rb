@@ -22,21 +22,60 @@ module Kraken
 
     def connect(host, port = 3030)
       @socket = TCPSocket.new(host, port)
-      @socket.puts @user
-      @socket.puts @pass
-      raise 'connection refused' unless @socket.gets.chomp == 'ok'
+      write @user
+      write @pass
+      raise 'connection refused' unless read == 'ok'
     rescue StandardError
       raise 'connection refused'
     end
 
     def call(method, params)
-      @socket.puts method.chomp
-      @socket.puts params_protocol(params).chomp
+      write method
+      write to_args(params)
+      read_args
     end
 
     private
 
-    def params_protocol(obj)
+    def read
+      r = @socket.gets
+      raise 'connection lost' if r.nil?
+      r.chomp
+    end
+
+    def read_args
+      type = read
+      case type
+      when 'h'
+        return read_hash
+      when 'v'
+        return read_vector
+      when 'n'
+        return nil
+      when 'a'
+        return read
+      end
+    end
+
+    def read_hash
+      n = read.to_i
+      awns = {}
+      n.times { awns[read.to_sym] = read_args }
+      awns
+    end
+
+    def read_vector
+      n = read.to_i
+      awns = []
+      n.times { awns << read_args }
+      awns
+    end
+
+    def write(txt)
+      @socket.puts txt.chomp
+    end
+
+    def to_args(obj)
       case obj
       when Hash
         return "h\n#{obj.size}\n#{hash_protocol obj}"
@@ -50,13 +89,13 @@ module Kraken
 
     def hash_protocol(obj)
       ret = ''
-      obj.each_pair { |key, value| ret += "#{key}\n#{params_protocol value}\n" }
+      obj.each_pair { |key, value| ret += "#{key}\n#{to_args value}\n" }
       ret.chomp
     end
 
     def vector_protocol(obj)
       ret = ''
-      obj.each { |value| ret += "#{params_protocol value}\n" }
+      obj.each { |value| ret += "#{to_args value}\n" }
       ret.chomp
     end
 
