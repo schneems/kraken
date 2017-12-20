@@ -32,7 +32,7 @@ module Kraken
     def call(method, params)
       write method
       write to_args(params)
-      read_args 
+      read_args
     end
 
     private
