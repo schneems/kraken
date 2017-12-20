@@ -11,7 +11,7 @@ describe Kraken::Client do
 
   before do
     @listener = Kraken::Listener.new
-    @client = Kraken::Client.new Faker::Ancient.god , Faker::Ancient.god
+    @client = Kraken::Client.new Faker::Ancient.god, Faker::Ancient.god
   end
 
   after do
