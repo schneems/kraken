@@ -25,6 +25,8 @@ module Kraken
       @socket.puts @user
       @socket.puts @pass
       raise 'connection refused' unless @socket.gets.chomp == 'ok'
+    rescue StandardError
+      raise 'connection refused'
     end
 
     def call(method, params)
