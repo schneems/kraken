@@ -42,4 +42,12 @@ describe Kraken::Client do
 
     expect(@structure).to eq KrakenClientTest.resp
   end
+
+  it 'raise if can not connect' do
+    Kraken::Config.instance.add_trigger klass: KrakenClientTest
+    @listener.close
+    expect do
+      @client.connect 'localhost'
+    end.to raise_error 'connection refused'
+  end
 end
