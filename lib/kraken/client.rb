@@ -17,7 +17,7 @@ module Kraken
     end
 
     def close
-      @socket.close if @socket.nil?
+      @socket.close unless @socket.nil?
     end
 
     def connect(host, port = 3030)
