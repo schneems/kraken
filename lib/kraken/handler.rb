@@ -30,7 +30,7 @@ module Kraken
     def read_trigger
       trigger = read
       args = read_args
-      return Kraken::Config.instance.triggers[trigger.downcase], args
+      [Kraken::Config.instance.triggers[trigger.downcase], args]
     end
 
     private
@@ -68,25 +68,29 @@ module Kraken
     def read_args
       type = read
       case type
-      # Hash case
       when 'h'
-        n = read.to_i
-        awns = {}
-        n.times { awns[read.to_sym] = read_args }
-        return awns
-      # Vector case
+        return read_hash
       when 'v'
-        n = read.to_i
-        awns = []
-        n.times { awns << read_args }
-        return awns
-      # Null value
+        return read_vector
       when 'n'
         return nil
-      # Absolute value
       when 'a'
         return read
       end
+    end
+
+    def read_hash
+      n = read.to_i
+      awns = {}
+      n.times { awns[read.to_sym] = read_args }
+      awns
+    end
+
+    def read_vector
+      n = read.to_i
+      awns = []
+      n.times { awns << read_args }
+      awns
     end
 
     def write(txt)

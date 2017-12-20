@@ -1,5 +1,4 @@
 describe Kraken::Handler do
-
   class KrakenHandlerTest < Kraken::Trigger
     def run
       @@params = params
@@ -41,8 +40,8 @@ describe Kraken::Handler do
 
     expect(@ok).to eq 'ok'
 
-    structure = { a: '2', b: '3', c: { a: '5' }, d: ['2',nil], k: nil }
-    
+    structure = { a: '2', b: '3', c: { a: '5' }, d: ['2', nil], k: nil }
+
     expect do
       @socket.puts 'krakenhandlertest'
       str = "h\n5\na\na\n2\nb\na\n3\nc\nh\n1\na\na\n5\nd\nv\n2\na\n2\nn\nk\nn"
