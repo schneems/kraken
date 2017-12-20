@@ -54,7 +54,7 @@ module Kraken
 
     def vector_protocol(obj)
       ret = ''
-      obj.each { |value| ret = ret+"#{params_protocol value}\n" }
+      obj.each { |value| ret += "#{params_protocol value}\n" }
       ret.chomp
     end
 

@@ -40,6 +40,6 @@ describe Kraken::Client do
 
     sleep 1
 
-    expect(@structure).to eq KrakenHandlerTest.resp
+    expect(@structure).to eq KrakenClientTest.resp
   end
 end
