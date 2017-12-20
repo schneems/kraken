@@ -5,6 +5,7 @@ require 'kraken/version'
 module Kraken
 end
 
+require 'kraken/client'
 require 'kraken/config'
 require 'kraken/listener'
 require 'kraken/log'
