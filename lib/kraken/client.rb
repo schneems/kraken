@@ -7,21 +7,26 @@ module Kraken
       @pass = pass
     end
 
+    def close
+      @socket.close
+    end
+
     def connect(host, port=3030)
       @socket = TCPSocket.new(host, port)
       @socket.puts @user
       @socket.puts @pass
+      raise 'connection refused' unless @socket.gets.chomp == 'ok'
     end
 
     def call(method, params)
       @socket.puts method.chomp
-      @socket.puts params_protocol(params.chomp)
+      @socket.puts params_protocol(params).chomp
     end
 
     private
 
     def params_protocol(obj)
-      case obj.class
+      case obj
       when Hash
         return "h\n#{obj.size}\n#{hash_protocol obj}"
       when Array
