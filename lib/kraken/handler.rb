@@ -6,7 +6,11 @@ require 'kraken/models/connection'
 module Kraken
   # This class handle a Socket.
   class Handler
+    attr_accessor :connection
+
     def initialize(socket)
+      return if socket.nil?
+
       @socket = socket
       @thread = Thread.new do
         begin

@@ -15,5 +15,11 @@ module Kraken
   #
   # More in: https://github.com/soveran/ohm
   class Model < Ohm::Model
+    def delete
+      on_delete
+      super()
+    end
+
+    def on_delete(); end
   end
 end

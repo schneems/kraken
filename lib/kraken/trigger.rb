@@ -9,10 +9,11 @@ module Kraken
   #   end
   class Trigger
     attr_reader :handler, :params
-    attr_accessor :callback
+    attr_accessor :callback, :connection
 
     def initialize(handler, params)
       @handler = handler
+      @connection = handler.connection
       @params = params
       @callback = nil
     end
