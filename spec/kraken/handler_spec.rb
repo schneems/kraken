@@ -69,7 +69,7 @@ describe Kraken::Handler do
 
     expect do
       @socket.puts 'krakenhandlertest'
-      str = "n"
+      str = 'n'
       @socket.puts str
     end.to_not raise_error
 
