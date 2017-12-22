@@ -28,10 +28,3 @@ if ARGV.include? '-d'
 end
 
 Kraken::Listener.new.join if ARGV.include? '-s'
-
-if ARGV.include? '-c'
-  require 'irb'
-  Kraken::Listener.new
-  IRB.start(__FILE__)
-  exit
-end
