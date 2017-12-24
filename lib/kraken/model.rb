@@ -1,5 +1,4 @@
 require 'ohm'
-require 'active_record'
 require 'kraken/db'
 
 module Kraken
@@ -25,10 +24,12 @@ module Kraken
   end
 
   # Create a map to MySql2
-  # This uses the ActiveRecord library!
-  class DatabaseModel < ActiveRecord::Base; end
+  # This uses the DataMapper
+  class DatabaseModel
+    include DataMapper::Resource
+  end
 
   # This create a migration to connected database
-  # This uses the ActiveRecord library!
+  # This uses the DataMapper
   class Migration < ActiveRecord::Migration[5.0]; end
 end

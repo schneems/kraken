@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.executables   = ['kraken']
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'activerecord'
+  spec.add_runtime_dependency 'data_mapper'
   spec.add_runtime_dependency 'logger'
   spec.add_runtime_dependency 'ohm'
   spec.add_runtime_dependency 'pg'

@@ -12,12 +12,6 @@ if ARGV.include? '-n'
   exit
 end
 
-if ARGV.include? '-m'
-  require_all 'db/migrations'
-  require_all 'db/operations'
-  exit
-end
-
 if ARGV.include? '-v'
   puts 'KrakenLab'
   puts "-v #{Kraken::VERSION}"
@@ -26,6 +20,15 @@ end
 
 require_all 'app'
 require_all 'config'
+
+DataMapper.finalize
+
+if ARGV.include? '-m'
+  require  'dm-migrations'
+  require_all 'db/migrate'
+  DataMapper.auto_migrate!
+  exit
+end
 
 if ARGV.include? '-d'
   require 'irb'
