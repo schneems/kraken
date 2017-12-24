@@ -14,6 +14,7 @@ end
 
 if ARGV.include? '-m'
   require_all 'db'
+  require_relative 'db'
   exit
 end
 

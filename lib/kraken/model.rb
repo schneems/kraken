@@ -27,4 +27,8 @@ module Kraken
   # Create a map to MySql2
   # This uses the ActiveRecord library!
   class DatabaseModel < ActiveRecord::Base; end
+
+  # This create a migration to connected database
+  # This uses the ActiveRecord library!
+  class Migration < ActiveRecord::Migration[5.0]; end
 end
