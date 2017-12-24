@@ -1,11 +1,14 @@
 language: ruby
 
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq postgresql-server-dev-9.3
+sudo: true
 
 services:
   - redis-server
+  - postgresql
+
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y postgresql-server-dev-all
 
 rvm:
   - ruby-head
