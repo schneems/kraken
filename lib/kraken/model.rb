@@ -1,4 +1,5 @@
 require 'ohm'
+require 'active_record'
 require 'kraken/db'
 
 module Kraken
@@ -22,4 +23,8 @@ module Kraken
 
     def on_delete(); end
   end
+
+  # Create a map to MySql2
+  # This uses the ActiveRecord library!
+  class DatabaseModel < ActiveRecord::Base; end
 end

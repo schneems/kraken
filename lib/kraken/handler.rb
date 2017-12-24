@@ -46,7 +46,7 @@ module Kraken
       @connection.save
 
       raise 'only one connection by user' unless @connection.single_user?
-
+      raise 'can not authenticate' unless @connection.authenticate
       write 'ok'
 
       work

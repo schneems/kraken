@@ -12,6 +12,11 @@ if ARGV.include? '-n'
   exit
 end
 
+if ARGV.include? '-m'
+  require_all 'db'
+  exit
+end
+
 if ARGV.include? '-v'
   puts 'KrakenLab'
   puts "-v #{Kraken::VERSION}"
