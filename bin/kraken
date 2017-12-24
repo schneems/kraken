@@ -25,7 +25,6 @@ DataMapper.finalize
 
 if ARGV.include? '-m'
   require  'dm-migrations'
-  require_all 'db/migrate'
   DataMapper.auto_migrate!
   exit
 end
