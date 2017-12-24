@@ -22,10 +22,4 @@ module Kraken
 
     def on_delete(); end
   end
-
-  # Create a map to MySql2
-  # This uses the DataMapper
-  class DatabaseModel
-    include DataMapper::Resource
-  end
 end
