@@ -38,6 +38,11 @@ Style/FormatStringToken:
 
 Metrics/BlockLength:
   Max: 50
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - '**/*_spec.rb'
+    - '*.gemspec'
 
 Style/ClassVars:
   Enabled: false

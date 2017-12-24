@@ -6,9 +6,9 @@ require 'kraken'
 
 if ARGV.include? '-n'
   require 'fileutils'
-  FileUtils.mkdir_p "#{ARGV.last}/config" unless File.exists? "#{ARGV.last}/config"
-  FileUtils.mkdir_p "#{ARGV.last}/app/models" unless File.exists? "#{ARGV.last}/app/models"
-  FileUtils.mkdir_p "#{ARGV.last}/app/triggers" unless File.exists? "#{ARGV.last}/app/triggers"
+  FileUtils.mkdir_p "#{ARGV.last}/config" unless File.exist? "#{ARGV.last}/config"
+  FileUtils.mkdir_p "#{ARGV.last}/app/models" unless File.exist? "#{ARGV.last}/app/models"
+  FileUtils.mkdir_p "#{ARGV.last}/app/triggers" unless File.exist? "#{ARGV.last}/app/triggers"
   exit
 end
 
