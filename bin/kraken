@@ -13,8 +13,8 @@ if ARGV.include? '-n'
 end
 
 if ARGV.include? '-m'
-  require_all 'db'
-  require_relative 'db'
+  require_all 'db/migrations'
+  require_all 'db/operations'
   exit
 end
 
