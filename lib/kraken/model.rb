@@ -28,8 +28,4 @@ module Kraken
   class DatabaseModel
     include DataMapper::Resource
   end
-
-  # This create a migration to connected database
-  # This uses the DataMapper
-  class Migration < ActiveRecord::Migration[5.0]; end
 end
