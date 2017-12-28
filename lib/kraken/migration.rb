@@ -1,12 +1,13 @@
 module Kraken
 
   MIGRATION_DEFAULT = "
+  require 'kraken'
   require 'require_all'
 
   require_all app
   require_all config
 
-  class Start < ActiveRecord::Migration
+  class Start < Kraken::Migration
 
     def up; end
 
