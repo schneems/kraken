@@ -23,8 +23,6 @@ end
 require_all 'app'
 require_all 'config'
 
-DataMapper.finalize
-
 if ARGV.include? '-m'
   require './migration.rb'
   exit
