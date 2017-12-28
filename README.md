@@ -144,7 +144,7 @@ After checking out the repo, run `bundle install` to install dependencies. You c
 
 ## Version
 
-As we release many stable versions for testing, and we price by incremental implementation, the only rule for the versions is: `Year.Month.Day.PublishId`
+As we release many stable versions for testing, and we price by incremental implementation, the only rule for the versions is: `Year.Month.Day`
 
 # Contributing
 
