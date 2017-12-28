@@ -76,7 +76,7 @@ Applications developed with kraken have 4 pillars:
   sudo service redis start
 ```
 
-##### Kraken Framework
+#### Kraken Framework
 
 Install the kraken:
     `$ gem install kraken`
