@@ -42,6 +42,7 @@ module Kraken
     def start
       user = read
       pass = read
+
       @connection = Connection.create(user: user, pass: pass)
       @connection.save
 
@@ -50,7 +51,7 @@ module Kraken
       if @connection.authenticate
         write 'ok'
       else
-        write 'false'
+        write 'nop'
         raise 'can not authenticate'
       end
 
