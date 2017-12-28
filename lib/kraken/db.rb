@@ -1,8 +1,11 @@
 require 'ohm'
-require 'data_mapper'
+require 'active_record'
 
 Ohm.redis = Redic.new
 
-DataMapper.setup(:default,
-  'postgres://postgres:postgres@localhost/kraken'
-)
+ActiveRecord::Base.establish_connection(adapter: 'postgresql',
+                                        database: 'kraken',
+                                        host: 'localhost',
+                                        port: '5432',
+                                        username: 'postgres',
+                                        password: 'postgres')
