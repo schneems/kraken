@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/KrakenLab/kraken.svg?branch=master)](https://travis-ci.org/KrakenLab/kraken)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/518f7a2f6a2f43bf9002b75ceff439a6)](https://www.codacy.com/app/Schweigert/kraken?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KrakenLab/kraken&amp;utm_campaign=Badge_Grade)
+[![Gem Version](https://badge.fury.io/rb/krakenlab.svg)](https://badge.fury.io/rb/krakenlab)
 
 # Welcome to Kraken!
 
