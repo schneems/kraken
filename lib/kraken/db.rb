@@ -5,6 +5,8 @@ module Kraken
   Migration = ActiveRecord::Migration
   Db = ActiveRecord::Base
 
+  Migrations = ActiveRecordMigrations
+
   Ohm.redis = Redic.new
 
   Kraken::Db.establish_connection(adapter: 'postgresql',

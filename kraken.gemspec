@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'activerecord', '~> 5.0', '>= 5.0.0.1'
+  spec.add_runtime_dependency 'active_record_migrations'
   spec.add_runtime_dependency 'logger'
   spec.add_runtime_dependency 'ohm'
   spec.add_runtime_dependency 'pg'

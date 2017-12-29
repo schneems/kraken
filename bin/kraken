@@ -10,7 +10,9 @@ if ARGV.include? '-n'
   FileUtils.mkdir_p "#{ARGV.last}/app/models" unless File.exist? "#{ARGV.last}/app/models"
   FileUtils.mkdir_p "#{ARGV.last}/app/triggers" unless File.exist? "#{ARGV.last}/app/triggers"
   require 'kraken/migration'
+  require 'kraken/rakefile'
   system "echo \"#{Kraken::MIGRATION_DEFAULT}\" >> #{ARGV.last}/migration.rb"
+  system "echo \"#{Kraken::RAKEFILE_DEFAULT}\" >> Rakefile"
   exit
 end
 
