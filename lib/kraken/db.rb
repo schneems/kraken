@@ -2,10 +2,10 @@ require 'ohm'
 require 'active_record'
 require 'active_record_migrations'
 
+# In db.rb file has some definitions to warp modules from other gens to Kraken framework.
 module Kraken
-  Migration = ActiveRecord::Migration
   Db = ActiveRecord::Base
-
+  Migration = ActiveRecord::Migration
   Migrations = ActiveRecordMigrations
 
   Ohm.redis = Redic.new

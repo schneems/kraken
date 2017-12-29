@@ -22,9 +22,7 @@ if ARGV.include? '-v'
   exit
 end
 
-require_all 'app/validators'
-require_all 'app'
-require_all 'config'
+load_app
 
 if ARGV.include? '-m'
   require './migration.rb'
