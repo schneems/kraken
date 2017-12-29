@@ -1,3 +1,3 @@
 module Kraken
-  VERSION = '2017.12.29.c'.freeze
+  VERSION = '2017.12.29.d'.freeze
 end
