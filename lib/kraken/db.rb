@@ -1,5 +1,6 @@
 require 'ohm'
 require 'active_record'
+require 'active_record_migrations'
 
 module Kraken
   Migration = ActiveRecord::Migration
