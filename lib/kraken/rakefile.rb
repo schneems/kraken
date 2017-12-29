@@ -25,5 +25,5 @@ module Kraken
   task :migrate do
     sh 'bundle exec kraken -m'
   end
-"
+".freeze
 end
