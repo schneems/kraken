@@ -24,7 +24,7 @@ if ARGV.include? '-v'
   exit
 end
 
-load_app
+Kraken::App.load_app
 
 if ARGV.include? '-m'
   require './migration.rb'

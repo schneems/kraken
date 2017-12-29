@@ -1,7 +1,7 @@
 module Kraken
   RAKEFILE_DEFAULT = "
   require 'kraken'\n
-  Kraken.load_app
+  Kraken::App.load_app
   Kraken::Migrations.load_tasks\n
   task :default do
     sh 'bundle exec kraken -s'
