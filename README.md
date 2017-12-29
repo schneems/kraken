@@ -51,7 +51,7 @@ Applications developed with kraken have 4 pillars:
     # => [1,2,3,4,5]
   ```
 
-# Controller
+## Controller
 
   The `controller` is the logical pillar from MVC! This is a Trigger! Triggers are events that can be triggered by a client, using some argument.
 
