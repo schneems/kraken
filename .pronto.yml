@@ -1,0 +1,11 @@
+all:
+  exclude:
+    - 'spec/**/*'
+
+github:
+  slug: krakenlab/kraken
+  api_endpoint: https://api.github.com/
+  web_endpoint: https://github.com/
+
+max_warnings: 150
+verbose: true
