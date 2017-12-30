@@ -8,8 +8,7 @@ task :console do
 end
 
 task test: :dbreset do
-  # TODO Remove the pronto run comment
-  # sh 'pronto run'
+  sh 'pronto run'
   sh 'bundle exec rspec'
 end
 
