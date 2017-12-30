@@ -12,7 +12,7 @@ module Kraken
   Ohm.redis = Redic.new
 
   if File.exist? 'db/config.yml'
-    Kraken::StaticModel.establish_connection(YAML.load(File.read('config/db.yml'))['development'])
+    Kraken::StaticModel.establish_connection(YAML.safe_load(File.read('config/db.yml'))['development'])
   else
     Kraken::StaticModel.establish_connection(adapter: 'postgresql',
                                              database: 'kraken',
