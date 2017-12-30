@@ -11,7 +11,7 @@ before_install:
   - sudo apt-get install -y postgresql-server-dev-all
 
 rvm:
-  - 2.4
+  - ruby-head
 
 script:
   - 'export PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} && bundle exec pronto run -f github_pr -c origin/master
