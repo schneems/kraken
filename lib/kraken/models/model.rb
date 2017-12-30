@@ -1,5 +1,5 @@
 require 'ohm'
-require 'kraken/db'
+require 'kraken/models/db'
 
 module Kraken
   # Every class that represents data must inherit this object.
@@ -14,7 +14,7 @@ module Kraken
   #   end
   #
   # More in: https://github.com/soveran/ohm
-  class Model < Ohm::Model
+  class MemoryModel < Ohm::Model
     def delete
       on_delete
       super()
