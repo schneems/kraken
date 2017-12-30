@@ -14,5 +14,5 @@ rvm:
   - 2.4
 
 script:
-  - 'export PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} && bundle exec pronto run -f github_pr -c origin/${TRAVIS_BRANCH}'
+  - 'export PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} && bundle exec pronto run -f github_pr -c origin/master
   - bundle exec rspec
