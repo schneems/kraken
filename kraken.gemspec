@@ -26,6 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'logger'
   spec.add_runtime_dependency 'ohm'
   spec.add_runtime_dependency 'pg'
+  spec.add_runtime_dependency 'project_creator', '2018.1.1'
   spec.add_runtime_dependency 'require_all', '~> 1.3', '>= 1.3.3'
 
   spec.add_development_dependency 'bundler', '~> 1.15'

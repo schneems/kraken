@@ -4,37 +4,10 @@ require 'bundler/setup'
 require 'require_all'
 require 'kraken'
 
-include Kraken
-
-if ARGV.include? '-n'
-  require 'fileutils'
-  FileUtils.mkdir_p "#{ARGV.last}/config" unless File.exist? "#{ARGV.last}/config"
-  FileUtils.mkdir_p "#{ARGV.last}/app/models" unless File.exist? "#{ARGV.last}/app/models"
-  FileUtils.mkdir_p "#{ARGV.last}/app/triggers" unless File.exist? "#{ARGV.last}/app/triggers"
-  require 'kraken/migration'
-  require 'kraken/rakefile'
-  system "echo \"#{Kraken::MIGRATION_DEFAULT}\" >> #{ARGV.last}/migration.rb"
-  system "echo \"#{Kraken::RAKEFILE_DEFAULT}\" >> Rakefile"
-  exit
-end
-
-if ARGV.include? '-v'
-  puts 'KrakenLab'
-  puts "-v #{Kraken::VERSION}"
-  exit
-end
+Kraken::App.create_app(ARGV.last) if ARGV.include? '-n'
+Kraken::App.print_version if ARGV.include? '-v'
 
 Kraken::App.load_app
 
-if ARGV.include? '-m'
-  require './migration.rb'
-  exit
-end
-
-if ARGV.include? '-d'
-  require 'irb'
-  IRB.start(__FILE__)
-  exit
-end
-
-Kraken::Listener.new.join if ARGV.include? '-s'
+Kraken::App.start_console if ARGV.include? '-d'
+Kraken::App.start_server if ARGV.include? '-s'
