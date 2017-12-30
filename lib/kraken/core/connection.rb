@@ -1,8 +1,8 @@
-require 'kraken/model'
+require 'kraken/models/model'
 
 module Kraken
   # The most trivial node
-  class Connection < Model
+  class Connection < MemoryModel
     attribute :user
     attribute :pass
 

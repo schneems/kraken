@@ -4,10 +4,12 @@ require 'kraken/version'
 module Kraken
 end
 
-require 'kraken/client'
-require 'kraken/config'
-require 'kraken/listener'
-require 'kraken/log'
-require 'kraken/model'
-require 'kraken/trigger'
-require 'kraken/app'
+require 'kraken/core/client'
+require 'kraken/core/config'
+require 'kraken/core/listener'
+require 'kraken/core/log'
+require 'kraken/core/app'
+
+require 'kraken/models/model'
+
+require 'kraken/triggers/trigger'

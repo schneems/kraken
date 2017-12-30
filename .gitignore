@@ -1,2 +1,3 @@
 *.lock
 *.gem
+.rake_tasks~

@@ -1,7 +1,7 @@
 require 'socket'
 require 'thread'
 
-require 'kraken/connection'
+require 'kraken/core/connection'
 
 module Kraken
   # This class handle a Socket.

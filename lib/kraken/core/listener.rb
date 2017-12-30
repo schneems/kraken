@@ -1,5 +1,5 @@
 require 'socket'
-require 'kraken/handler'
+require 'kraken/core/handler'
 
 module Kraken
   # This class receives the TCP connections.

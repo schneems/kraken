@@ -2,6 +2,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/518f7a2f6a2f43bf9002b75ceff439a6)](https://www.codacy.com/app/Schweigert/kraken?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KrakenLab/kraken&amp;utm_campaign=Badge_Grade)
 [![Gem Version](https://badge.fury.io/rb/krakenlab.svg)](https://badge.fury.io/rb/krakenlab)
 [![Code Triagers Badge](https://www.codetriage.com/krakenlab/kraken/badges/users.svg)](https://www.codetriage.com/krakenlab/kraken)
+[![Dependency Status](https://beta.gemnasium.com/badges/github.com/KrakenLab/kraken.svg)](https://beta.gemnasium.com/projects/github.com/KrakenLab/kraken)
 
 # Welcome to Kraken!
 
