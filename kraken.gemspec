@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'project_creator', '2018.1.1'
   spec.add_runtime_dependency 'require_all', '1.3'
 
-  spec.add_development_dependency 'bundler', '1.16.1'
+  spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'faker'
   spec.add_development_dependency 'pronto'
   spec.add_development_dependency 'pronto-flay'
