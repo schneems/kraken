@@ -11,9 +11,10 @@ module Kraken
   #   a.call 'module::krakentrigger', 'call only this'
   #   a.call 'module::krakentrigger', ['or this', 3]
   class Client
-    def initialize(user, pass)
+    def initialize(user, pass, version)
       @user = user
       @pass = pass
+      @version = version
     end
 
     def close
@@ -22,6 +23,7 @@ module Kraken
 
     def connect(host, port = 3030)
       @socket = TCPSocket.new(host, port)
+      write @version
       write @user
       write @pass
       raise 'connection refused' unless read == 'ok'

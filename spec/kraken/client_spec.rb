@@ -12,7 +12,7 @@ describe Kraken::Client do
 
   before do
     @listener = Kraken::Listener.new
-    @client = Kraken::Client.new Faker::Ancient.god, Faker::Ancient.god
+    @client = Kraken::Client.new Faker::Ancient.god, Faker::Ancient.god, '1.0'
   end
 
   after do
@@ -27,6 +27,7 @@ describe Kraken::Client do
   end
 
   it 'can call a complex param' do
+    Kraken::Config.instance.server version: '1.0'
     Kraken::Config.instance.add_trigger klass: KrakenClientTest
 
     expect do
@@ -46,6 +47,7 @@ describe Kraken::Client do
   end
 
   it 'raise if can not connect' do
+    Kraken::Config.instance.server version: '1.0'
     Kraken::Config.instance.add_trigger klass: KrakenClientTest
     @listener.close
     expect do

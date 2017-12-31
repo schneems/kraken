@@ -21,7 +21,10 @@ describe Kraken::Handler do
   end
 
   it 'can connect' do
+    Kraken::Config.instance.server version: '1.0'
+
     expect do
+      @socket.puts '1.0'
       @socket.puts Faker::Dune.planet
       @socket.puts Faker::Dune.planet
       @ok = @socket.gets.chomp
@@ -30,10 +33,23 @@ describe Kraken::Handler do
     expect(@ok).to eq 'ok'
   end
 
+  it 'can not connect others versions' do
+    Kraken::Config.instance.server version: '1.0'
+
+    @socket.puts '2.0'
+    @socket.puts Faker::Dune.planet
+    @socket.puts Faker::Dune.planet
+    @ok = @socket.gets
+
+    expect(@ok).to eq nil
+  end
+
   it 'can write a complex structure to a param' do
+    Kraken::Config.instance.server version: '1.0'
     Kraken::Config.instance.add_trigger klass: KrakenHandlerTest
 
     expect do
+      @socket.puts '1.0'
       @socket.puts Faker::Dune.planet
       @socket.puts Faker::Dune.planet
       @ok = @socket.gets.chomp
@@ -55,9 +71,11 @@ describe Kraken::Handler do
   end
 
   it 'can write nil' do
+    Kraken::Config.instance.server version: '1.0'
     Kraken::Config.instance.add_trigger klass: KrakenHandlerTest
 
     expect do
+      @socket.puts '1.0'
       @socket.puts Faker::Dune.planet
       @socket.puts Faker::Dune.planet
       @ok = @socket.gets.chomp
@@ -79,9 +97,11 @@ describe Kraken::Handler do
   end
 
   it 'can write []' do
+    Kraken::Config.instance.server version: '1.0'
     Kraken::Config.instance.add_trigger klass: KrakenHandlerTest
 
     expect do
+      @socket.puts '1.0'
       @socket.puts Faker::Dune.planet
       @socket.puts Faker::Dune.planet
       @ok = @socket.gets.chomp
