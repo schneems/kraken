@@ -40,8 +40,11 @@ module Kraken
     private
 
     def start
+      version = read
       user = read
       pass = read
+
+      raise 'invalid version' unless Kraken::Config.instance.server_version == version
 
       @connection = Connection.create(user: user, pass: pass)
       @connection.save
