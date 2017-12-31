@@ -40,9 +40,7 @@ module Kraken
     private
 
     def start
-      version = read
-      user = read
-      pass = read
+      version, user, pass = read_authentication_info
 
       raise 'invalid version' unless Kraken::Config.instance.server_version == version
 
@@ -60,6 +58,13 @@ module Kraken
 
       work
       close
+    end
+
+    def read_authentication_info
+      version = read
+      user = read
+      pass = read
+      [version, user, pass]
     end
 
     def work
